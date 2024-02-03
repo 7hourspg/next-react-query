@@ -15,15 +15,15 @@ export default function RootLayout({children}) {
    return (
       <html lang="en">
          <body className={inter.className}>
-            <Suspense
+            {/* <Suspense
                fallback={
                   <div className="flex flex-col items-center justify-center min-h-screen py-2">
                      <h1 className="text-6xl font-bold text-red-700">Loading...</h1>
                   </div>
                }
-            >
+            > */}
                <Providers>{children}</Providers>
-            </Suspense>
+            {/* </Suspense> */}
          </body>
       </html>
    );
