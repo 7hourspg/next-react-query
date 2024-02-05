@@ -1,5 +1,3 @@
-import Card from '../card';
-
 export async function generateMetadata({params}) {
    // read route params
    const id = params.id;
@@ -15,9 +13,25 @@ export async function generateMetadata({params}) {
    };
 }
 
-function page({params}) {
-   const id = params.id;
-   return <Card id={id} />;
-}
+const getPosts = async (id) => {
+   return fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
+      res.json()
+   );
+};
 
-export default page;
+export default async function Page({params}) {
+   const id = params.id;
+   const data = await getPosts(id);
+
+   return (
+      <div>
+         {data && (
+            <div>
+               <h1>{data.title}</h1>
+               <p>{data.description}</p>
+               <p>{data.price}</p>
+            </div>
+         )}
+      </div>
+   );
+}
