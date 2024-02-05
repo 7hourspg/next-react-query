@@ -1,14 +1,17 @@
 "use client";
 import React from "react";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import Card from "../card/card";
 
 function TestPage({data}) {
    const [stateData, setStateData] = useState(data);
 
-   let filteredData = data?.filter((item) => {
-      return item.id === Math.floor(Math.random() * 10);
-   });
+   const filteredData = () => {
+      const filteredData = data.filter(
+         (item) => item.id === Math.floor(Math.random() * 20)
+      );
+      setStateData(filteredData);
+   };
 
    return (
       <div>
@@ -18,7 +21,7 @@ function TestPage({data}) {
          <div className="flex justify-center items-center py-4">
             <button
                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all duration-300 ease-in-out"
-               onClick={() => setStateData(filteredData)}
+               onClick={filteredData}
             >
                Filter Data
             </button>

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
+
 function Card({data}) {
+   
    return (
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
          {/* send data through url */}

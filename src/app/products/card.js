@@ -1,10 +1,12 @@
 import {QueryClient} from "@tanstack/react-query";
 
-export default async function Card({slug}) {
+export default async function Card({id}) {
+
+     
    const queryClient = new QueryClient();
 
    const getPosts = async () => {
-      return fetch(`https://fakestoreapi.com/products/${slug}`).then((res) =>
+      return fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
          res.json()
       );
    };
